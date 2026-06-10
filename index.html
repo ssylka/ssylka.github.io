@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Станислав Пересыпкин — Full-stack разработчик C# / .NET / PostgreSQL</title>
+<meta name="description" content="Портфолио Станислава Пересыпкина: full-stack разработка на C#, ASP.NET (.NET 8), PostgreSQL. Развёрнутые проекты, интеграции с Salesforce, Odoo, Power Automate.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>💻</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f17; --bg2:#0f1522; --card:#141c2e; --card2:#18223a;
+  --text:#e7ecf5; --muted:#93a1b8; --border:rgba(255,255,255,.09);
+  --accent:#6d7cff; --accent2:#22d3ee; --grad:linear-gradient(100deg,#6d7cff,#22d3ee);
+  --shadow:0 14px 40px rgba(0,0,0,.45);
+  --chipbg:rgba(109,124,255,.12); --chiptext:#aab6ff;
+}
+html[data-theme="light"]{
+  --bg:#f4f7fc; --bg2:#eaeef7; --card:#ffffff; --card2:#f3f6fd;
+  --text:#101828; --muted:#5a6b86; --border:rgba(16,24,40,.1);
+  --shadow:0 14px 36px rgba(30,50,90,.12);
+  --chipbg:rgba(89,104,255,.1); --chiptext:#4250d8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .35s,color .35s}
+a{color:var(--accent);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1120px;margin:0 auto;padding:0 22px}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* ── Nav ── */
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 75%,transparent);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-weight:800;font-size:1.05rem;letter-spacing:.4px}
+.logo .dot{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-size:.92rem;font-weight:500;padding:7px 11px;border-radius:9px;transition:.2s}
+.nav-links a:hover{color:var(--text);background:var(--chipbg)}
+#themeBtn{cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:10px;width:38px;height:38px;font-size:1.05rem;display:grid;place-items:center;transition:.2s;margin-left:8px}
+#themeBtn:hover{transform:translateY(-1px);border-color:var(--accent)}
+
+/* ── Hero ── */
+header{position:relative;overflow:hidden;padding:96px 0 80px}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none}
+.blob1{width:480px;height:480px;background:#6d7cff33;top:-160px;right:-120px}
+.blob2{width:420px;height:420px;background:#22d3ee2b;bottom:-180px;left:-120px}
+.hero-kicker{font-size:.95rem;color:var(--accent2);font-weight:600;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px}
+h1{font-size:clamp(2.1rem,5.4vw,3.6rem);font-weight:800;line-height:1.12;letter-spacing:-1px}
+h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--muted);margin:18px 0 8px;max-width:680px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--muted);font-size:.95rem;margin:16px 0 28px}
+.hero-meta span{display:flex;align-items:center;gap:7px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:.97rem;transition:.22s;border:1px solid var(--border)}
+.btn-primary{background:var(--grad);color:#fff;border:none;box-shadow:0 8px 24px rgba(99,112,255,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(99,112,255,.45)}
+.btn-ghost{background:var(--card);color:var(--text)}
+.btn-ghost:hover{transform:translateY(-2px);border-color:var(--accent)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:42px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 22px;min-width:150px}
+.stat b{display:block;font-size:1.5rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:var(--muted);font-size:.85rem}
+
+/* ── Sections ── */
+section{padding:74px 0}
+.sec-title{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.5px;margin-bottom:10px}
+.sec-title::after{content:"";display:block;width:64px;height:4px;border-radius:4px;background:var(--grad);margin-top:10px}
+.sec-sub{color:var(--muted);max-width:760px;margin-bottom:38px}
+.hint{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted);background:var(--chipbg);border-radius:9px;padding:7px 13px;margin-top:14px}
+
+/* ── Cards / chips / video ── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);transition:transform .25s,border-color .25s}
+.card:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--border))}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--chipbg);color:var(--chiptext);font-size:.8rem;font-weight:600;padding:5px 12px;border-radius:999px}
+.video{position:relative;width:100%;height:0;padding-top:56.25%;border-radius:14px;overflow:hidden;background:var(--bg2);border:1px solid var(--border)}
+.video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video .ph{position:absolute;top:0;left:0;width:100%;height:100%;display:grid;place-items:center;color:var(--muted);font-size:.9rem;gap:6px;text-align:center;padding:18px;box-sizing:border-box}
+.links-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.link-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:11px;border:1px solid var(--border);background:var(--card2);color:var(--text);font-size:.9rem;font-weight:600;transition:.2s}
+.link-pill:hover{border-color:var(--accent);transform:translateY(-2px)}
+.link-pill .ic{font-size:1.02rem}
+
+/* ── Featured project ── */
+.featured{padding:30px;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:start}
+.feat-badge{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.featured h3{font-size:1.65rem;font-weight:800;letter-spacing:-.4px;margin-bottom:12px}
+.featured p{color:var(--muted);font-size:.97rem;margin-bottom:14px}
+.feat-list{list-style:none;margin:0 0 18px;display:grid;gap:8px}
+.feat-list li{padding-left:26px;position:relative;color:var(--muted);font-size:.93rem}
+.feat-list li::before{content:"✦";position:absolute;left:2px;color:var(--accent2)}
+
+/* ── «Дополнительно» ── */
+details.extra{margin-top:26px;border:1px solid var(--border);border-radius:16px;background:var(--card2);overflow:hidden}
+details.extra>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;padding:18px 24px;font-weight:700;font-size:1.05rem;user-select:none;transition:.2s}
+details.extra>summary::-webkit-details-marker{display:none}
+details.extra>summary:hover{color:var(--accent)}
+details.extra>summary .plus{width:30px;height:30px;border-radius:9px;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:1.2rem;font-weight:700;flex:none;transition:transform .3s}
+details.extra[open]>summary .plus{transform:rotate(45deg)}
+details.extra>summary .sum-note{margin-left:auto;font-size:.82rem;font-weight:500;color:var(--muted)}
+.extra-body{padding:6px 24px 26px;display:grid;gap:20px}
+.int-card{border:1px solid var(--border);border-radius:14px;background:var(--card);padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.int-card h4{font-size:1.12rem;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.int-card h4 .tag{font-size:.72rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;background:var(--chipbg);color:var(--chiptext);padding:4px 10px;border-radius:999px}
+.int-card p{color:var(--muted);font-size:.91rem;margin-bottom:12px}
+.int-videos{display:grid;gap:12px}
+.int-videos .vlabel{font-size:.8rem;color:var(--muted);margin-bottom:5px;font-weight:600}
+
+/* ── Project blocks ── */
+.proj-stack{display:grid;gap:28px;margin-top:30px}
+.featured.flip>div:first-child{order:2}
+
+/* ── Skills ── */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.skill-card{padding:22px}
+.skill-card h4{font-size:1rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.skill-card h4 .ic{font-size:1.2rem}
+
+/* ── Experience ── */
+.timeline{position:relative;margin-left:10px;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),var(--accent2))}
+.tl-item{position:relative;padding-bottom:38px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-40px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--grad);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 18%,transparent)}
+.tl-date{font-size:.82rem;font-weight:700;color:var(--accent2);letter-spacing:.6px;text-transform:uppercase}
+.tl-item h4{font-size:1.15rem;font-weight:700;margin:5px 0 2px}
+.tl-item .org{color:var(--muted);font-size:.92rem;font-weight:600;margin-bottom:10px}
+.tl-item ul{list-style:none;display:grid;gap:7px}
+.tl-item ul li{padding-left:22px;position:relative;color:var(--muted);font-size:.92rem}
+.tl-item ul li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+
+/* ── Education ── */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.edu-card{padding:20px}
+.edu-card .yr{font-size:.8rem;font-weight:700;color:var(--accent2)}
+.edu-card h4{font-size:1rem;font-weight:700;margin:5px 0 3px}
+.edu-card p{color:var(--muted);font-size:.88rem}
+
+/* ── Gallery ── */
+.gallery-wrap{max-width:680px;margin:0 auto}
+.slideshow{position:relative;aspect-ratio:4/5;max-height:640px;border-radius:22px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);background:var(--bg2)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.06)}
+.slide.active{opacity:1}
+.slide.active img{animation:kenburns 7s ease forwards}
+@keyframes kenburns{from{transform:scale(1.12)}to{transform:scale(1.0)}}
+.slide-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:none;background:rgba(10,14,22,.5);backdrop-filter:blur(6px);color:#fff;font-size:1.2rem;cursor:pointer;display:grid;place-items:center;transition:.2s;z-index:5}
+.slide-nav:hover{background:rgba(10,14,22,.75)}
+.slide-prev{left:14px}.slide-next{right:14px}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+.dots button{width:9px;height:9px;border-radius:50%;border:none;background:var(--muted);opacity:.4;cursor:pointer;transition:.25s;padding:0}
+.dots button.on{opacity:1;background:var(--accent);transform:scale(1.35)}
+
+/* ── Footer ── */
+footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--bg2)}
+.foot-grid{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start}
+.foot-grid h3{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+.foot-grid p{color:var(--muted);font-size:.93rem}
+.contact-list{display:grid;gap:10px;margin-top:6px}
+.contact-list a,.contact-list span{display:flex;align-items:center;gap:10px;color:var(--text);font-size:.95rem;font-weight:500}
+.contact-list a:hover{color:var(--accent)}
+.copy{margin-top:36px;text-align:center;color:var(--muted);font-size:.82rem}
+
+/* ── Documents / lightbox ── */
+.docs-block{margin-top:46px}
+.docs-block h3{font-size:1.25rem;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.docs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:18px}
+.doc-card{padding:13px;cursor:pointer}
+.doc-card:hover{transform:translateY(-4px)}
+.doc-thumb{position:relative;border-radius:11px;overflow:hidden;aspect-ratio:3/4;background:var(--bg2)}
+.doc-thumb.wide{aspect-ratio:4/3}
+.doc-thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+.doc-thumb .pages{position:absolute;right:9px;bottom:9px;background:rgba(8,12,20,.72);color:#fff;font-size:.74rem;font-weight:700;padding:4px 10px;border-radius:999px;backdrop-filter:blur(4px)}
+.doc-card h5{font-size:.93rem;font-weight:700;margin:11px 2px 2px}
+.doc-card .sub{color:var(--muted);font-size:.8rem;margin:0 2px}
+.doc-card .pdf-link{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;margin:8px 2px 0}
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(5,8,14,.92);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;padding:30px 16px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:78vh;border-radius:12px;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+.lb-title{color:#fff;font-weight:700;font-size:1rem;text-align:center}
+.lb-count{color:#9fb0c8;font-size:.85rem}
+.lb-close{position:absolute;top:18px;right:22px;background:rgba(255,255,255,.1);border:none;color:#fff;width:42px;height:42px;border-radius:50%;font-size:1.25rem;cursor:pointer}
+.lb-close:hover{background:rgba(255,255,255,.22)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:#fff;width:46px;height:46px;border-radius:50%;font-size:1.25rem;cursor:pointer;transition:.2s}
+.lb-nav:hover{background:rgba(255,255,255,.22)}
+.lb-prev{left:18px}.lb-next{right:18px}
+
+/* ── Reveal animation ── */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:880px){
+  .featured{grid-template-columns:1fr}
+  .featured.flip>div:first-child{order:0}
+  .int-card{grid-template-columns:1fr}
+  .nav-links a:not(:last-child){display:none}
+  .nav-links a[href="#contacts"]{display:inline-block}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">Станислав<span class="dot"> Пересыпкин</span></div>
+    <div class="nav-links">
+      <a href="#projects">Проекты</a>
+      <a href="#skills">Навыки</a>
+      <a href="#experience">Опыт</a>
+      <a href="#education">Образование</a>
+      <a href="#gallery">Фото</a>
+      <a href="#contacts">Контакты</a>
+      <button id="themeBtn" title="Переключить тему">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="container">
+    <div class="hero-kicker mono">// full-stack developer</div>
+    <h1>Привет, я Станислав.<br>Разрабатываю на <span class="grad">C# / .NET / PostgreSQL</span></h1>
+    <p class="hero-sub">Full-stack разработчик: backend-логика на ASP.NET, проектирование и оптимизация баз данных PostgreSQL, интеграции с внешними сервисами и собственный frontend. Все мои проекты развёрнуты и доступны онлайн.</p>
+    <div class="hero-meta">
+      <span>📍 Ростов-на-Дону · удалённо, готов к командировкам</span>
+      <span>💼 Открыт к предложениям</span>
+    </div>
+    <div class="hero-btns">
+      <a class="btn btn-primary" href="#projects">Смотреть проекты ↓</a>
+      <a class="btn btn-ghost" href="https://github.com/ssylka" target="_blank" rel="noopener">⌥ GitHub</a>
+      <a class="btn btn-ghost" href="#contacts">✉ Связаться</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>4,5+</b><span>лет опыта</span></div>
+      <div class="stat"><b>5</b><span>проектов в продакшене</span></div>
+      <div class="stat"><b>3</b><span>интеграции: Salesforce, Odoo, Power Automate</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ════════ ПРОЕКТЫ ════════ -->
+<section id="projects">
+  <div class="container">
+    <h2 class="sec-title reveal">Проекты</h2>
+    <p class="sec-sub reveal">Полноценные full-stack приложения: C# / ASP.NET (.NET 8) + PostgreSQL на бэкенде, Bootstrap и JavaScript на фронтенде. Каждый проект развёрнут и доступен по ссылке, к каждому — видео-превью.</p>
+    <p class="hint reveal">⏳ Проекты развёрнуты на бесплатном хостинге Render — первый запуск страницы может занять 30–60 секунд.</p>
+
+    <!-- Главный проект -->
+    <div class="card featured reveal" style="margin-top:28px">
+      <div>
+        <span class="feat-badge">★ Главный проект</span>
+        <h3>📦 Inventory Management</h3>
+        <p>Веб-приложение для ведения инвентаризаций любого типа: оргтехника, книги, документы. Пользователи создают собственные шаблоны инвентаризаций с гибкой структурой и управляют элементами внутри них.</p>
+        <ul class="feat-list">
+          <li>Конструктор пользовательских ID: drag &amp; drop из блоков (текст, случайные числа, GUID, дата, последовательность) с live-превью и контролем уникальности на уровне БД</li>
+          <li>Настраиваемые поля 5 типов с управлением видимостью в таблице</li>
+          <li>Разграничение доступа: публичные и приватные инвентаризации, страница администратора</li>
+          <li>OAuth-вход через Google и GitHub, полнотекстовый поиск на каждой странице</li>
+          <li>Обсуждения в реальном времени, лайки, автосохранение с оптимистичными блокировками</li>
+          <li>Статистика по элементам, локализация, светлая/тёмная тема</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">C# / ASP.NET (.NET 8)</span><span class="chip">PostgreSQL</span><span class="chip">Entity Framework</span><span class="chip">Bootstrap</span><span class="chip">SendGrid</span><span class="chip">Cloudinary</span><span class="chip">SortableJS</span>
+        </div>
+        <div class="links-row">
+          <a class="link-pill" href="https://inventory-management-njpx.onrender.com/" target="_blank" rel="noopener"><span class="ic">🚀</span> Деплой</a>
+          <a class="link-pill" href="https://github.com/ssylka/Inventory-management/tree/mainPage" target="_blank" rel="noopener"><span class="ic">⌥</span> GitHub</a>
+        </div>
+      </div>
+      <div>
+        <div class="int-videos">
+          <div>
+            <div class="vlabel">▶ Видео-превью проекта</div>
+            <div class="video"><div class="ph">⏳ Загрузка видео…</div><iframe data-src="https://drive.google.com/file/d/1hPcq97zorOuTaBGQk67nOJR0A7xjacSU/preview" allow="autoplay" allowfullscreen title="Inventory Management — демонстрация"></iframe></div>
+          </div>
+        </div>
+
+        <!-- Дополнительно -->
+        <details class="extra" id="extraDetails">
+          <summary><span class="plus">+</span> Дополнительно: интеграции <span class="sum-note">Salesforce · Power Automate · Odoo</span></summary>
+          <div class="extra-body">
+            <p style="color:var(--muted);font-size:.9rem">Проект расширен тремя интеграциями с популярными корпоративными платформами — в духе тренда «больше интеграций, меньше разработки с нуля».</p>
+
+            <div class="int-card">
+              <div>
+                <h4>☁️ Salesforce <span class="tag">CRM</span></h4>
+                <p>Интеграция с CRM: в профиле пользователя есть отдельное действие (доступно только самому пользователю и администраторам), которое открывает форму с дополнительными данными. По отправке формы через REST API в Salesforce автоматически создаются связанные Account и Contact.</p>
+              </div>
+              <div class="int-videos">
+                <div>
+                  <div class="vlabel">▶ Демонстрация работы</div>
+                  <div class="video"><div class="ph">⏳ Загрузка видео…</div><iframe data-src="https://drive.google.com/file/d/1m1V7ItyzTUMSbY02WCTHbr4ih6bgoKA9/preview" allow="autoplay" allowfullscreen title="Salesforce — демонстрация"></iframe></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="int-card">
+              <div>
+                <h4>⚡ Power Automate <span class="tag">Автоматизация</span></h4>
+                <p>Сервис поддержки: с любой страницы можно создать тикет, указав тему и приоритет (High / Average / Low). Приложение формирует JSON — автор, инвентаризация, ссылка на исходную страницу, приоритет — и загружает его в облачное хранилище. Облачный flow в Power Automate срабатывает на новый файл, читает JSON, рассылает оформленные письма администраторам и отправляет push-уведомление в мобильное приложение Power Automate.</p>
+              </div>
+              <div class="int-videos">
+                <div>
+                  <div class="vlabel">▶ Демонстрация работы</div>
+                  <div class="video"><div class="ph">⏳ Загрузка видео…</div><iframe data-src="https://drive.google.com/file/d/1eYEnLyyO6bI67kUQztkeeUI2Os8EgftC/preview" allow="autoplay" allowfullscreen title="Power Automate — демонстрация"></iframe></div>
+                </div>
+                <div>
+                  <div class="vlabel">📱 Получение уведомления на телефон</div>
+                  <div class="video"><div class="ph">⏳ Загрузка видео…</div><iframe data-src="https://drive.google.com/file/d/1UfN2rv9ADzvsrMT5WDCEqvlV4m7ZUKdz/preview" allow="autoplay" allowfullscreen title="Power Automate — уведомление на телефон"></iframe></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="int-card">
+              <div>
+                <h4>🟣 Odoo <span class="tag">ERP</span></h4>
+                <p>Внешний API с доступом к агрегированным результатам инвентаризаций по api-токену (токен генерируется отдельно для каждой инвентаризации). Собственное приложение Odoo импортирует по токену название, набор полей и агрегаты — среднее/мин/макс для чисел, самые популярные значения для текста — и работает как read-only viewer со списком импортированных инвентаризаций и детальным просмотром каждой.</p>
+                <div class="links-row" style="margin-top:10px">
+                  <a class="link-pill" href="https://odoo-inventory-rwx2.onrender.com" target="_blank" rel="noopener"><span class="ic">🚀</span> Развёрнутый Odoo</a>
+                  <a class="link-pill" href="https://github.com/ssylka/odoo-inventory/tree/main" target="_blank" rel="noopener"><span class="ic">⌥</span> Репозиторий</a>
+                </div>
+              </div>
+              <div class="int-videos">
+                <div>
+                  <div class="vlabel">▶ Демонстрация работы</div>
+                  <div class="video"><div class="ph">⏳ Загрузка видео…</div><iframe data-src="https://drive.google.com/file/d/1JpHOYkYcOpreYO6yqY9YAIa28Rt-1V7C/preview" allow="autoplay" allowfullscreen title="Odoo — демонстрация"></iframe></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Остальные проекты -->
+    <div class="proj-stack">
+
+      <div class="card featured reveal">
+        <div>
+          <h3>🧩 User Management</h3>
+          <p>Панель управления пользователями в деловом стиле «таблица + тулбар»: регистрация, асинхронное подтверждение e-mail, статусы Active / Unverified / Blocked, блокировка и удаление.</p>
+          <ul class="feat-list">
+            <li>Уникальность e-mail гарантируется уникальным индексом на уровне БД</li>
+            <li>Множественный выбор чекбоксами, сортировка, кнопки тулбара активируются по выбору</li>
+            <li>Проверка статуса пользователя перед каждым запросом, адаптивная вёрстка</li>
+          </ul>
+          <div class="chips"><span class="chip">ASP.NET</span><span class="chip">PostgreSQL</span><span class="chip">Bootstrap</span><span class="chip">SMTP</span></div>
+          <div class="links-row">
+            <a class="link-pill" href="https://adminserver-scu6.onrender.com" target="_blank" rel="noopener"><span class="ic">🚀</span> Деплой</a>
+            <a class="link-pill" href="https://github.com/ssylka/AdminServer/tree/final" target="_blank" rel="noopener"><span class="ic">⌥</span> GitHub</a>
+          </div>
+        </div>
+        <div class="int-videos">
+          <div>
+            <div class="vlabel">▶ Видео-превью проекта</div>
+            <div class="video"><div class="ph">⏳ Загрузка видео…</div><iframe data-src="https://drive.google.com/file/d/1uVWq1TeOyn-1URQoAzqieLZL4EQqo_Et/preview" allow="autoplay" allowfullscreen title="User Management — демонстрация"></iframe></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card featured flip reveal">
+        <div>
+          <h3>🎨 webCanva</h3>
+          <p>Совместный графический web-редактор в духе Google Jamboard: общие доски, на которых несколько пользователей рисуют одновременно в реальном времени.</p>
+          <ul class="feat-list">
+            <li>Инструменты: текст, фигуры, выбор цвета, стирание нарисованного</li>
+            <li>История рисунков хранится постоянно, у каждой доски — превью</li>
+            <li>Экспорт готовой работы в PNG; вход — просто по никнейму, без регистрации</li>
+          </ul>
+          <div class="chips"><span class="chip">ASP.NET</span><span class="chip">WebSockets</span><span class="chip">Canvas API</span><span class="chip">PostgreSQL</span></div>
+          <div class="links-row">
+            <a class="link-pill" href="https://webcanva-uide.onrender.com" target="_blank" rel="noopener"><span class="ic">🚀</span> Деплой</a>
+            <a class="link-pill" href="https://github.com/ssylka/webCanva/tree/DeployEdition" target="_blank" rel="noopener"><span class="ic">⌥</span> GitHub</a>
+          </div>
+        </div>
+        <div class="int-videos">
+          <div>
+            <div class="vlabel">▶ Видео-превью проекта</div>
+            <div class="video"><div class="ph">⏳ Загрузка видео…</div><iframe data-src="https://drive.google.com/file/d/1B51tz7BbXGSSOPDxdP_VSK1zqhxAl4N1/preview" allow="autoplay" allowfullscreen title="webCanva — демонстрация"></iframe></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card featured reveal">
+        <div>
+          <h3>🎵 Music Album</h3>
+          <p>Витрина музыкального магазина, весь контент которой генерируется на лету: тексты — Bogus, обложки — SixLabors, музыка — NAudio.</p>
+          <ul class="feat-list">
+            <li>Детерминированная генерация по seed: одинаковый seed — одинаковые данные на любом устройстве</li>
+            <li>Локализация датасетов, настраиваемое среднее число лайков (включая дробные значения)</li>
+            <li>Таблица с пагинацией и галерея с бесконечной прокруткой, аудио-превью треков</li>
+          </ul>
+          <div class="chips"><span class="chip">ASP.NET</span><span class="chip">Bogus</span><span class="chip">SixLabors</span><span class="chip">NAudio</span></div>
+          <div class="links-row">
+            <a class="link-pill" href="https://musicalbum-y1ec.onrender.com" target="_blank" rel="noopener"><span class="ic">🚀</span> Деплой</a>
+            <a class="link-pill" href="https://github.com/ssylka/MusicAlbum/tree/main" target="_blank" rel="noopener"><span class="ic">⌥</span> GitHub</a>
+          </div>
+        </div>
+        <div class="int-videos">
+          <div>
+            <div class="vlabel">▶ Видео-превью проекта</div>
+            <div class="video"><div class="ph">⏳ Загрузка видео…</div><iframe data-src="https://drive.google.com/file/d/1kCXTIPlIKSLPbQMBlCrxmoOwW7QFHiJH/preview" allow="autoplay" allowfullscreen title="Music Album — демонстрация"></iframe></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ НАВЫКИ ════════ -->
+<section id="skills" style="background:var(--bg2)">
+  <div class="container">
+    <h2 class="sec-title reveal">Навыки</h2>
+    <p class="sec-sub reveal">Основной стек — C# / .NET и PostgreSQL, плюс всё, что нужно, чтобы довести продукт от схемы БД до развёрнутого сайта.</p>
+    <div class="skill-grid">
+      <div class="card skill-card reveal">
+        <h4><span class="ic">⚙️</span> Backend</h4>
+        <div class="chips"><span class="chip">C#</span><span class="chip">.NET 8 / .NET Framework</span><span class="chip">ASP.NET</span><span class="chip">Entity Framework</span><span class="chip">REST API</span><span class="chip">Многопоточность</span></div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">🗄️</span> Базы данных</h4>
+        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SQL</span><span class="chip">Оптимизация запросов</span><span class="chip">Полнотекстовый поиск</span></div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">🖥️</span> Frontend и десктоп</h4>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">Bootstrap</span><span class="chip">HTML / CSS</span><span class="chip">WPF</span><span class="chip">WinForms</span></div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">🧰</span> Инструменты</h4>
+        <div class="chips"><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">DevExpress</span><span class="chip">Python</span></div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">🔗</span> Интеграции</h4>
+        <div class="chips"><span class="chip">Salesforce</span><span class="chip">Odoo</span><span class="chip">Power Automate</span><span class="chip">OAuth (Google, GitHub)</span><span class="chip">SendGrid</span><span class="chip">Cloudinary</span></div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">📐</span> Принципы и языки</h4>
+        <div class="chips"><span class="chip">ООП</span><span class="chip">SOLID</span><span class="chip">Паттерны проектирования</span><span class="chip">🇷🇺 Русский — родной</span><span class="chip">🇬🇧 Английский — B1</span><span class="chip">🇩🇪 Немецкий — A1</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ОПЫТ ════════ -->
+<section id="experience">
+  <div class="container">
+    <h2 class="sec-title reveal">Опыт работы</h2>
+    <p class="sec-sub reveal">Более 4,5 лет коммерческой разработки: от стажировки до продуктовых систем для крупного бизнеса.</p>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-date">Март 2026 — Июнь 2026</div>
+        <h4>Backend-разработчик</h4>
+        <div class="org">Itransition Software Georgia LLC · Грузия (удалённо)</div>
+        <ul>
+          <li>Разработка backend-логики full-stack приложений на ASP.NET (.NET 8) + PostgreSQL</li>
+          <li>Интеграции с внешними платформами: Salesforce (CRM), Odoo (ERP), Power Automate</li>
+          <li>Поиск, оценка и внедрение библиотек; собственный frontend на Bootstrap</li>
+          <li>4 проекта развёрнуты в продакшен и доступны онлайн (см. раздел «Проекты»)</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">Май 2024 — Ноябрь 2025</div>
+        <h4>Программист</h4>
+        <div class="org">Научно-производственный центр «Космос-2» · Ростов-на-Дону</div>
+        <ul>
+          <li>Платформа управления оперативными данными для «ДонЭнерго» — крупнейшего поставщика электроэнергии Ростовской области</li>
+          <li>Автоматизация ключевых бизнес-процессов: заявки на подключение, учёт отключений электроэнергии, отчётность за произвольные периоды</li>
+          <li>Администрирование и оптимизация PostgreSQL, устранение узких мест производительности</li>
+          <li>Инструменты автоматизации документооборота на C# + DevExpress: генерация отчётов Excel и Word из данных БД</li>
+          <li>Участие в развитии архитектуры и улучшении существующего функционала</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">Январь 2020 — Август 2022</div>
+        <h4>C#/.NET-разработчик (стажировка)</h4>
+        <div class="org">Компьютерная Академия ШАГ · Ростов-на-Дону</div>
+        <ul>
+          <li>Разработка и сопровождение ПО, связанного с базами данных, на C#</li>
+          <li>.NET-приложения с многопоточностью, серверное и системное программирование</li>
+          <li>12+ пользовательских интерфейсов на WPF и WinForms; дипломный проект — собственный почтовый клиент</li>
+          <li>Entity Framework, инструменты поиска и фильтрации данных, ООП, SOLID, паттерны проектирования</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ОБРАЗОВАНИЕ И ДОКУМЕНТЫ ════════ -->
+<section id="education" style="background:var(--bg2)">
+  <div class="container">
+    <h2 class="sec-title reveal">Образование и сертификаты</h2>
+    <p class="sec-sub reveal">Два высших образования ЮФУ и профильная подготовка по программированию. Нажми на документ, чтобы рассмотреть его поближе.</p>
+
+    <div class="edu-grid">
+      <div class="card edu-card reveal"><div class="yr">2024</div><h4>Южный федеральный университет</h4><p>Мехмат · магистратура<br>Mathematical Modeling &amp; Information Technologies</p></div>
+      <div class="card edu-card reveal"><div class="yr">2022</div><h4>Южный федеральный университет</h4><p>ИФиСПН · Политология</p></div>
+      <div class="card edu-card reveal"><div class="yr">2022</div><h4>Компьютерная Академия ШАГ</h4><p>Программирование</p></div>
+    </div>
+
+    <div class="docs-block reveal">
+      <h3>🎓 Дипломы</h3>
+      <div class="docs-grid">
+        <div class="card doc-card" data-group="master">
+          <div class="doc-thumb"><img src="docs/master-1.jpg" alt="Диплом магистра" loading="lazy"><span class="pages">4 стр.</span></div>
+          <h5>Диплом магистра</h5>
+          <p class="sub">ЮФУ · Прикладная математика и информатика · 2024</p>
+        </div>
+        <div class="card doc-card" data-group="bachelor">
+          <div class="doc-thumb"><img src="docs/bachelor-1.jpg" alt="Диплом бакалавра" loading="lazy"><span class="pages">5 стр.</span></div>
+          <h5>Диплом бакалавра</h5>
+          <p class="sub">ЮФУ · Политология · 2022</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="docs-block reveal">
+      <h3>🏅 Сертификат о стажировке Itransition</h3>
+      <div class="docs-grid">
+        <div class="card doc-card" data-group="itransition">
+          <div class="doc-thumb wide"><img src="docs/itransition-certificate.jpg" alt="Сертификат Itransition" loading="lazy"></div>
+          <h5>Itransition · C# Training</h5>
+          <p class="sub">Сертификат об окончании стажировки · июнь 2026</p>
+          <a class="pdf-link" href="docs/itransition-certificate.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()">📄 Открыть PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="docs-block reveal">
+      <h3>📜 Сертификаты Microsoft Imagine Academy <span style="font-size:.8rem;font-weight:500;color:var(--muted)">· период обучения в Академии ШАГ, 2021</span></h3>
+      <div class="docs-grid">
+        <div class="card doc-card" data-group="certdb">
+          <div class="doc-thumb wide"><img src="docs/cert-database-fundamentals.jpg" alt="Database Fundamentals" loading="lazy"></div>
+          <h5>Database Fundamentals</h5>
+          <a class="pdf-link" href="docs/cert-database-fundamentals.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()">📄 Открыть PDF</a>
+        </div>
+        <div class="card doc-card" data-group="certhtml">
+          <div class="doc-thumb wide"><img src="docs/cert-html5.jpg" alt="HTML5 Application Development Fundamentals" loading="lazy"></div>
+          <h5>HTML5 Application Development</h5>
+          <a class="pdf-link" href="docs/cert-html5.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()">📄 Открыть PDF</a>
+        </div>
+        <div class="card doc-card" data-group="certdata">
+          <div class="doc-thumb wide"><img src="docs/cert-using-data.jpg" alt="Using Data in Software Applications" loading="lazy"></div>
+          <h5>Using Data in Software Applications</h5>
+          <a class="pdf-link" href="docs/cert-using-data.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()">📄 Открыть PDF</a>
+        </div>
+        <div class="card doc-card" data-group="certnosql">
+          <div class="doc-thumb wide"><img src="docs/cert-non-relational.jpg" alt="Working with Non-Relational Data" loading="lazy"></div>
+          <h5>Working with Non-Relational Data</h5>
+          <a class="pdf-link" href="docs/cert-non-relational.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()">📄 Открыть PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ФОТО ════════ -->
+<section id="gallery">
+  <div class="container">
+    <h2 class="sec-title reveal">Немного обо мне</h2>
+    <p class="sec-sub reveal">Вне кода — путешествия, спорт и хорошая компания.</p>
+    <div class="gallery-wrap reveal">
+      <div class="slideshow" id="slideshow">
+        <button class="slide-nav slide-prev" id="slidePrev" aria-label="Назад">‹</button>
+        <button class="slide-nav slide-next" id="slideNext" aria-label="Вперёд">›</button>
+      </div>
+      <div class="dots" id="slideDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ КОНТАКТЫ ════════ -->
+<footer id="contacts">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <h3>Давайте работать вместе!</h3>
+        <p>Открыт к предложениям: полная занятость, частичная, проектная работа.<br>Формат — удалённо, готов к командировкам.</p>
+      </div>
+      <div class="contact-list">
+        <a href="https://t.me/+79281855580" target="_blank" rel="noopener">✈️ Telegram <span style="color:var(--muted);font-size:.82rem">— предпочитаемый способ связи</span></a>
+        <a href="tel:+79281855580">📞 +7 (928) 185-55-80</a>
+        <a href="https://wa.me/79281855580" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a href="mailto:2000ctac@gmail.com">✉️ 2000ctac@gmail.com</a>
+        <a href="https://github.com/ssylka" target="_blank" rel="noopener">⌥ github.com/ssylka</a>
+        <span>📍 Ростов-на-Дону, Россия</span>
+      </div>
+    </div>
+    <div class="copy">© 2026 Станислав Пересыпкин · C# / .NET / PostgreSQL Developer</div>
+  </div>
+</footer>
+
+<!-- ════════ ЛАЙТБОКС ════════ -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Закрыть">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Назад">‹</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Вперёд">›</button>
+  <img id="lbImg" src="" alt="Документ">
+  <div class="lb-title" id="lbTitle"></div>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<script>
+/* ── Тема ── */
+const themeBtn = document.getElementById('themeBtn');
+const setTheme = t => {
+  document.documentElement.dataset.theme = t;
+  themeBtn.textContent = t === 'dark' ? '🌙' : '☀️';
+  localStorage.setItem('theme', t);
+};
+setTheme(localStorage.getItem('theme') || 'dark');
+themeBtn.onclick = () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+
+/* ── Появление секций ── */
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+/* ── Ленивая загрузка видео ── */
+const loadFrame = f => { if (f.dataset.src && !f.src) f.src = f.dataset.src; };
+const vo = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { loadFrame(e.target); vo.unobserve(e.target); }
+}), { rootMargin: '250px' });
+document.querySelectorAll('iframe[data-src]').forEach(f => {
+  if (!f.closest('details')) vo.observe(f);
+});
+document.getElementById('extraDetails').addEventListener('toggle', e => {
+  if (e.target.open) e.target.querySelectorAll('iframe[data-src]').forEach(loadFrame);
+});
+
+/* ── Слайд-шоу ── */
+const photos = Array.from({length: 10}, (_, i) => `photos/photo-${String(i+1).padStart(2,'0')}.jpg`);
+const show = document.getElementById('slideshow');
+const dotsBox = document.getElementById('slideDots');
+photos.forEach((src, i) => {
+  const d = document.createElement('div');
+  d.className = 'slide' + (i === 0 ? ' active' : '');
+  d.innerHTML = `<img src="${src}" alt="Фото ${i+1}" ${i > 1 ? 'loading="lazy"' : ''}>`;
+  show.insertBefore(d, show.firstChild);
+  const b = document.createElement('button');
+  b.className = i === 0 ? 'on' : '';
+  b.onclick = () => goSlide(i);
+  dotsBox.appendChild(b);
+});
+const slides = show.querySelectorAll('.slide');
+const dots = dotsBox.querySelectorAll('button');
+let cur = 0, timer;
+function goSlide(n) {
+  slides[cur].classList.remove('active'); dots[cur].classList.remove('on');
+  cur = (n + photos.length) % photos.length;
+  slides[cur].classList.add('active'); dots[cur].classList.add('on');
+  restart();
+}
+function restart() { clearInterval(timer); timer = setInterval(() => goSlide(cur + 1), 4500); }
+restart();
+document.getElementById('slidePrev').onclick = () => goSlide(cur - 1);
+document.getElementById('slideNext').onclick = () => goSlide(cur + 1);
+show.addEventListener('mouseenter', () => clearInterval(timer));
+show.addEventListener('mouseleave', restart);
+
+/* ── Лайтбокс документов ── */
+const groups = {
+  bachelor: { title: 'Диплом бакалавра · ЮФУ, Политология (2022)', imgs: ['docs/bachelor-1.jpg','docs/bachelor-2.jpg','docs/bachelor-3.jpg','docs/bachelor-4.jpg','docs/bachelor-5.jpg'] },
+  master: { title: 'Диплом магистра · ЮФУ, Прикладная математика и информатика (2024)', imgs: ['docs/master-1.jpg','docs/master-2.jpg','docs/master-3.jpg','docs/master-4.jpg'] },
+  itransition: { title: 'Сертификат Itransition · C# Training (2026)', imgs: ['docs/itransition-certificate.jpg'] },
+  certdb: { title: 'Microsoft Imagine Academy · Database Fundamentals', imgs: ['docs/cert-database-fundamentals.jpg'] },
+  certhtml: { title: 'Microsoft Imagine Academy · HTML5 Application Development', imgs: ['docs/cert-html5.jpg'] },
+  certdata: { title: 'Microsoft Imagine Academy · Using Data in Software Applications', imgs: ['docs/cert-using-data.jpg'] },
+  certnosql: { title: 'Microsoft Imagine Academy · Working with Non-Relational Data', imgs: ['docs/cert-non-relational.jpg'] }
+};
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbTitle = document.getElementById('lbTitle');
+const lbCount = document.getElementById('lbCount');
+let g = null, gi = 0;
+function openLb(name, i = 0) {
+  g = groups[name]; gi = i;
+  renderLb();
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function renderLb() {
+  lbImg.src = g.imgs[gi];
+  lbTitle.textContent = g.title;
+  lbCount.textContent = g.imgs.length > 1 ? `${gi + 1} / ${g.imgs.length} — листай стрелками` : '';
+  const multi = g.imgs.length > 1 ? '' : 'none';
+  document.getElementById('lbPrev').style.display = multi;
+  document.getElementById('lbNext').style.display = multi;
+}
+function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+document.querySelectorAll('.doc-card').forEach(c => c.addEventListener('click', () => openLb(c.dataset.group)));
+document.getElementById('lbClose').onclick = closeLb;
+document.getElementById('lbPrev').onclick = e => { e.stopPropagation(); gi = (gi - 1 + g.imgs.length) % g.imgs.length; renderLb(); };
+document.getElementById('lbNext').onclick = e => { e.stopPropagation(); gi = (gi + 1) % g.imgs.length; renderLb(); };
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+  if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+});
+</script>
+</body>
+</html>
