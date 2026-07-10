@@ -80,6 +80,7 @@ section{padding:74px 0}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{background:var(--chipbg);color:var(--chiptext);font-size:.8rem;font-weight:600;padding:5px 12px;border-radius:999px}
 .video{position:relative;width:100%;height:0;padding-top:56.25%;border-radius:14px;overflow:hidden;background:var(--bg2);border:1px solid var(--border)}
+.video.portrait{height:auto;padding-top:0;aspect-ratio:1080/1920;max-width:340px;margin:0 auto}
 .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
 .video .ph{position:absolute;top:0;left:0;width:100%;height:100%;display:grid;place-items:center;color:var(--muted);font-size:.9rem;gap:6px;text-align:center;padding:18px;box-sizing:border-box}
 .links-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
@@ -89,6 +90,7 @@ section{padding:74px 0}
 
 /* ── Featured project ── */
 .featured{padding:30px;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:start}
+.feat-video-top{grid-column:1/-1}
 .feat-badge{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:16px}
 .featured h3{font-size:1.65rem;font-weight:800;letter-spacing:-.4px;margin-bottom:12px}
 .featured p{color:var(--muted);font-size:.97rem;margin-bottom:14px}
@@ -332,6 +334,10 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
 
     <!-- Главный проект -->
     <div class="card featured reveal" style="margin-top:28px">
+      <div class="feat-video-top">
+        <div class="vlabel">▶ Краткая презентация проекта</div>
+        <div class="video portrait"><div class="ph">⏳ Загрузка видео…</div><iframe data-src="https://drive.google.com/file/d/1mv-ztN2js9baHdyPt3IQWf9An-f62Zen/preview" allow="autoplay" allowfullscreen title="Inventory Management — краткая презентация"></iframe></div>
+      </div>
       <div>
         <span class="feat-badge">★ Главный проект</span>
         <h3>📦 Inventory Management</h3>
