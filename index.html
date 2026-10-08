@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Станислав Пересыпкин — Full-stack разработчик C# / .NET / PostgreSQL</title>
-<meta name="description" content="Портфолио Станислава Пересыпкина: full-stack разработка на C#, ASP.NET (.NET 8), PostgreSQL. Развёрнутые проекты, интеграции с Salesforce, Odoo, Power Automate.">
+<title>Станислав Пересыпкин — инженер технической поддержки с опытом разработки на C# / .NET / PostgreSQL</title>
+<meta name="description" content="Резюме Станислава Пересыпкина: техническая поддержка пользователей, разбор инцидентов, тестирование, администрирование PostgreSQL; разработка на C#, ASP.NET (.NET 8), PostgreSQL.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>💻</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,6 +136,9 @@ details.extra>summary .sum-note{margin-left:auto;font-size:.82rem;font-weight:50
 .tl-item ul{list-style:none;display:grid;gap:7px}
 .tl-item ul li{padding-left:22px;position:relative;color:var(--muted);font-size:.92rem}
 .tl-item ul li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+.tl-item ul li.hl{color:var(--text);background:var(--chipbg);border-left:3px solid var(--accent2);border-radius:8px;padding:10px 14px 10px 34px}
+.tl-item ul li.hl::before{left:14px;top:10px;color:var(--accent2)}
+.tl-item ul li.hl b{color:var(--accent2)}
 
 /* ── Education ── */
 .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
@@ -289,7 +292,6 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
       <a href="#skills">Навыки</a>
       <a href="#experience">Опыт</a>
       <a href="#education">Образование</a>
-      <a href="#gallery">Фото</a>
       <a href="#contacts">Контакты</a>
       <button id="themeBtn" title="Переключить тему">🌙</button>
     </div>
@@ -301,12 +303,13 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
   <div class="blob blob2"></div>
   <div class="container hero-grid">
     <div class="hero-text">
-      <div class="hero-kicker mono">// full-stack developer</div>
-      <h1>Привет, я Станислав.<br>Разрабатываю на <span class="grad">C# / .NET / Python / PostgreSQL</span></h1>
-      <p class="hero-sub">Full-stack разработчик: backend-логика на ASP.NET, проектирование и оптимизация баз данных PostgreSQL, интеграции с внешними сервисами и собственный frontend. Все мои проекты развёрнуты и доступны онлайн.</p>
+      <div class="hero-kicker mono">// tech support engineer · .NET developer</div>
+      <h1>Привет, я Станислав.<br>Инженер технической поддержки <span class="grad">с опытом разработки на C# / .NET / PostgreSQL</span></h1>
+      <p class="hero-sub">Сопровождаю пользователей и разбираюсь в проблеме до уровня кода, логов и базы данных — а потом объясняю решение простым языком. За плечами 5+ лет в разработке: поддержка и обучение пользователей корпоративной системы, разбор инцидентов, тестирование на xUnit, администрирование PostgreSQL. Все мои проекты развёрнуты и доступны онлайн.</p>
       <div class="hero-meta">
-        <span>📍 Ростов-на-Дону · удалённо, готов к командировкам</span>
+        <span>📍 Тбилиси · удалённо, готов к командировкам</span>
         <span>💼 Открыт к предложениям</span>
+        <span>🕐 Готов к графику 2/2 или 5/2, работе в выходные и праздники, выходу на связь при авариях</span>
       </div>
       <div class="hero-btns">
         <a class="btn btn-primary" href="#projects">Смотреть проекты ↓</a>
@@ -388,7 +391,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
             <div class="int-card">
               <div>
                 <h4>⚡ Power Automate <span class="tag">Автоматизация</span></h4>
-                <p>Сервис поддержки: с любой страницы можно создать тикет, указав тему и приоритет (High / Average / Low). Приложение формирует JSON — автор, инвентаризация, ссылка на исходную страницу, приоритет — и загружает его в облачное хранилище. Облачный flow в Power Automate срабатывает на новый файл, читает JSON, рассылает оформленные письма администраторам и отправляет push-уведомление в мобильное приложение Power Automate.</p>
+                <p><b>Helpdesk-система</b>: с любой страницы можно создать тикет в поддержку, указав тему и приоритет (High / Average / Low). Приложение формирует JSON — автор, инвентаризация, ссылка на исходную страницу, приоритет — и загружает его в облачное хранилище. Облачный flow в Power Automate срабатывает на новый файл, читает JSON, рассылает оформленные письма администраторам и отправляет push-уведомление в мобильное приложение Power Automate.</p>
               </div>
               <div class="int-videos">
                 <div>
@@ -504,8 +507,20 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
 <section id="skills" style="background:var(--bg2)">
   <div class="container">
     <h2 class="sec-title reveal">Навыки</h2>
-    <p class="sec-sub reveal">Основной стек — C# / .NET и PostgreSQL, плюс всё, что нужно, чтобы довести продукт от схемы БД до развёрнутого сайта.</p>
+    <p class="sec-sub reveal">Поддержка пользователей, разбор инцидентов и тестирование — на фундаменте C# / .NET и PostgreSQL.</p>
     <div class="skill-grid">
+      <div class="card skill-card reveal">
+        <h4><span class="ic">🎧</span> Поддержка и тестирование</h4>
+        <div class="chips"><span class="chip">Поддержка пользователей</span><span class="chip">Обучение пользователей</span><span class="chip">Разбор ошибок и инцидентов</span><span class="chip">Локализация проблем</span><span class="chip">xUnit</span><span class="chip">Модульное тестирование</span><span class="chip">Helpdesk / тикеты</span></div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">🖧</span> Серверы и инфраструктура</h4>
+        <div class="chips"><span class="chip">Администрирование PostgreSQL</span><span class="chip">Linux</span><span class="chip">Логирование и анализ логов</span><span class="chip">Docker</span><span class="chip">Деплой (Render)</span><span class="chip">Windows</span></div>
+      </div>
+      <div class="card skill-card reveal">
+        <h4><span class="ic">🔒</span> Безопасность</h4>
+        <div class="chips"><span class="chip">OAuth 2.0</span><span class="chip">Разграничение прав доступа</span><span class="chip">API-токены</span><span class="chip">Подтверждение e-mail</span><span class="chip">Блокировка учётных записей</span></div>
+      </div>
       <div class="card skill-card reveal">
         <h4><span class="ic">⚙️</span> Backend</h4>
         <div class="chips"><span class="chip">C#</span><span class="chip">.NET 8 / .NET Framework</span><span class="chip">ASP.NET</span><span class="chip">Entity Framework</span><span class="chip">REST API</span><span class="chip">Многопоточность</span></div>
@@ -528,7 +543,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
       </div>
       <div class="card skill-card reveal">
         <h4><span class="ic">📐</span> Принципы и языки</h4>
-        <div class="chips"><span class="chip">ООП</span><span class="chip">SOLID</span><span class="chip">Паттерны проектирования</span><span class="chip">🇷🇺 Русский — родной</span><span class="chip">🇬🇧 Английский — B1</span><span class="chip">🇩🇪 Немецкий — A1</span></div>
+        <div class="chips"><span class="chip">ООП</span><span class="chip">SOLID</span><span class="chip">Паттерны проектирования</span><span class="chip">🇷🇺 Русский — родной</span><span class="chip">🇬🇧 Английский — B2</span><span class="chip">🇩🇪 Немецкий — A1</span></div>
       </div>
     </div>
   </div>
@@ -538,7 +553,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
 <section id="experience">
   <div class="container">
     <h2 class="sec-title reveal">Опыт работы</h2>
-    <p class="sec-sub reveal">Более 4,5 лет коммерческой разработки: от стажировки до продуктовых систем для крупного бизнеса.</p>
+    <p class="sec-sub reveal">5+ лет в разработке: от стажировки до продуктовых систем для крупного бизнеса — с сопровождением пользователей, разбором инцидентов и тестированием.</p>
     <div class="timeline">
       <div class="tl-item reveal">
         <div class="tl-date">Март 2026 — Июнь 2026</div>
@@ -547,6 +562,9 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
         <ul>
           <li>Разработка backend-логики full-stack приложений на ASP.NET (.NET 8) + PostgreSQL</li>
           <li>Интеграции с внешними платформами: Salesforce (CRM), Odoo (ERP), Power Automate</li>
+          <li>Helpdesk-система для приложения: тикеты с приоритетами, автоматическая рассылка писем администраторам и push-уведомления через Power Automate</li>
+          <li>Безопасность: вход через OAuth (Google, GitHub), разграничение прав доступа, персональные API-токены для внешнего доступа, блокировка учётных записей</li>
+          <li class="hl"><b>Тестирование:</b> покрывал бизнес-логику модульными тестами на xUnit — проверка правил и граничных случаев до попадания изменений в продакшен</li>
           <li>Поиск, оценка и внедрение библиотек; собственный frontend на Bootstrap</li>
           <li>4 проекта развёрнуты в продакшен и доступны онлайн (см. раздел «Проекты»)</li>
         </ul>
@@ -559,8 +577,11 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
           <li>Платформа управления оперативными данными для «ДонЭнерго» — крупнейшего поставщика электроэнергии Ростовской области</li>
           <li>Автоматизация ключевых бизнес-процессов: заявки на подключение, учёт отключений электроэнергии, отчётность за произвольные периоды</li>
           <li>Разработка десктопных клиентских приложений (.NET, EF Core, WinForms/DevExpress) для сотрудников: оформление заявок, учёт отключений, работа с отчётами</li>
+          <li class="hl"><b>Поддержка пользователей:</b> сопровождал сотрудников «ДонЭнерго», работающих в наших приложениях, — принимал обращения, разбирал и устранял ошибки, обучал работе с системой и помогал в нестандартных ситуациях</li>
+          <li class="hl"><b>Тестирование:</b> писал модульные тесты на xUnit для бизнес-логики заявок и отчётности — ошибки ловились на этапе разработки, а не у пользователей</li>
           <li>Инструменты автоматизации документооборота на C# + DevExpress: генерация отчётов Excel и Word из данных БД</li>
-          <li>Администрирование и оптимизация PostgreSQL — переписал тяжёлый аналитический запрос через EXPLAIN ANALYZE (агрегация вместо UNION и подзапросов), сократив время выполнения с 2 минут до 40 секунд</li>
+          <li>Локализация инцидента с производительностью: через EXPLAIN ANALYZE нашёл узкое место в тяжёлом аналитическом запросе и переписал его (агрегация вместо UNION и подзапросов) — время выполнения сократилось с 2 минут до 40 секунд</li>
+          <li>Администрирование PostgreSQL; работа с Linux-серверами: логирование сервисов и анализ логов при разборе ошибок</li>
           <li>Оптимизация архитектуры: перенос части логики из БД в C#-приложение ускорил загрузку налоговой формы</li>
           <li>Разработка Python-сервиса для очистки данных и генерации графиков (Pandas, Matplotlib) для отчётов руководству</li>
         </ul>
@@ -588,6 +609,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
 
     <div class="edu-grid">
       <div class="card edu-card reveal"><div class="yr">2024</div><h4>Южный федеральный университет</h4><p>Мехмат · магистратура<br>Mathematical Modeling &amp; Information Technologies</p></div>
+      <div class="card edu-card reveal"><div class="yr">2022</div><h4>Южный федеральный университет</h4><p>Бакалавриат<br>41.03.04 Политология</p></div>
       <div class="card edu-card reveal"><div class="yr">2022</div><h4>Компьютерная Академия ШАГ</h4><p>Программирование</p></div>
     </div>
 
@@ -598,6 +620,11 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
           <div class="doc-thumb"><img src="docs/master-1.jpg" alt="Диплом магистра" loading="lazy"><span class="pages">4 стр.</span></div>
           <h5>Диплом магистра</h5>
           <p class="sub">ЮФУ · Прикладная математика и информатика · 2024</p>
+        </div>
+        <div class="card doc-card" data-group="bachelor">
+          <div class="doc-thumb wide"><img src="docs/bachelor-1.jpg" alt="Диплом бакалавра" loading="lazy"><span class="pages">5 стр.</span></div>
+          <h5>Диплом бакалавра</h5>
+          <p class="sub">ЮФУ · Политология · 2022</p>
         </div>
       </div>
     </div>
@@ -642,28 +669,13 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
   </div>
 </section>
 
-<!-- ════════ ФОТО ════════ -->
-<section id="gallery">
-  <div class="container">
-    <h2 class="sec-title reveal">Немного обо мне</h2>
-    <p class="sec-sub reveal">Вне кода — путешествия, спорт и хорошая компания.</p>
-    <div class="gallery-wrap reveal">
-      <div class="slideshow" id="slideshow">
-        <button class="slide-nav slide-prev" id="slidePrev" aria-label="Назад">‹</button>
-        <button class="slide-nav slide-next" id="slideNext" aria-label="Вперёд">›</button>
-      </div>
-      <div class="dots" id="slideDots"></div>
-    </div>
-  </div>
-</section>
-
 <!-- ════════ КОНТАКТЫ ════════ -->
 <footer id="contacts">
   <div class="container">
     <div class="foot-grid">
       <div>
         <h3>Давайте работать вместе!</h3>
-        <p>Открыт к предложениям: полная занятость, частичная, проектная работа.<br>Формат — удалённо, готов к командировкам.</p>
+        <p>Открыт к предложениям: полная занятость, частичная, проектная работа.<br>Формат — удалённо, готов к командировкам.<br>Готов к графику 2/2 или 5/2, работе в выходные и праздники, к выходу на связь при авариях.</p>
       </div>
       <div class="contact-list">
         <a href="https://t.me/+79281855580" target="_blank" rel="noopener">✈️ Telegram <span style="color:var(--muted);font-size:.82rem">— предпочитаемый способ связи</span></a>
@@ -671,7 +683,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;background:var(--b
         <a href="https://wa.me/79281855580" target="_blank" rel="noopener">💬 WhatsApp</a>
         <a href="mailto:2000ctac@gmail.com">✉️ 2000ctac@gmail.com</a>
         <a href="https://github.com/ssylka" target="_blank" rel="noopener">⌥ github.com/ssylka</a>
-        <span>📍 Ростов-на-Дону, Россия</span>
+        <span>📍 Тбилиси, Грузия</span>
       </div>
     </div>
     <div class="copy">© 2026 Станислав Пересыпкин · C# / .NET / PostgreSQL Developer</div>
@@ -717,39 +729,10 @@ document.getElementById('extraDetails').addEventListener('toggle', e => {
   if (e.target.open) e.target.querySelectorAll('iframe[data-src]').forEach(loadFrame);
 });
 
-/* ── Слайд-шоу ── */
-const photos = Array.from({length: 10}, (_, i) => `photos/photo-${String(i+1).padStart(2,'0')}.jpg`);
-const show = document.getElementById('slideshow');
-const dotsBox = document.getElementById('slideDots');
-photos.forEach((src, i) => {
-  const d = document.createElement('div');
-  d.className = 'slide' + (i === 0 ? ' active' : '');
-  d.innerHTML = `<img src="${src}" alt="Фото ${i+1}" ${i > 1 ? 'loading="lazy"' : ''}>`;
-  show.insertBefore(d, show.firstChild);
-  const b = document.createElement('button');
-  b.className = i === 0 ? 'on' : '';
-  b.onclick = () => goSlide(i);
-  dotsBox.appendChild(b);
-});
-const slides = show.querySelectorAll('.slide');
-const dots = dotsBox.querySelectorAll('button');
-let cur = 0, timer;
-function goSlide(n) {
-  slides[cur].classList.remove('active'); dots[cur].classList.remove('on');
-  cur = (n + photos.length) % photos.length;
-  slides[cur].classList.add('active'); dots[cur].classList.add('on');
-  restart();
-}
-function restart() { clearInterval(timer); timer = setInterval(() => goSlide(cur + 1), 4500); }
-restart();
-document.getElementById('slidePrev').onclick = () => goSlide(cur - 1);
-document.getElementById('slideNext').onclick = () => goSlide(cur + 1);
-show.addEventListener('mouseenter', () => clearInterval(timer));
-show.addEventListener('mouseleave', restart);
-
 /* ── Лайтбокс документов ── */
 const groups = {
   master: { title: 'Диплом магистра · ЮФУ, Прикладная математика и информатика (2024)', imgs: ['docs/master-1.jpg','docs/master-2.jpg','docs/master-3.jpg','docs/master-4.jpg'] },
+  bachelor: { title: 'Диплом бакалавра · ЮФУ, Политология (2022)', imgs: ['docs/bachelor-1.jpg','docs/bachelor-2.jpg','docs/bachelor-3.jpg','docs/bachelor-4.jpg','docs/bachelor-5.jpg'] },
   itransition: { title: 'Сертификат Itransition · C# Training (2026)', imgs: ['docs/itransition-certificate.jpg'] },
   certdb: { title: 'Microsoft Imagine Academy · Database Fundamentals', imgs: ['docs/cert-database-fundamentals.jpg'] },
   certhtml: { title: 'Microsoft Imagine Academy · HTML5 Application Development', imgs: ['docs/cert-html5.jpg'] },
